@@ -1,0 +1,743 @@
+/* ===================================
+   SEVEN music Website
+   Dynamic Logo Header with Scroll Effects
+   =================================== */
+
+:root {
+    --primary-gold: #EDAC00;
+    --dark-gold: #C89000;
+    --light-gold: #F5C842;
+    --black: #000000;
+    --white: #FFFFFF;
+    --gray-dark: #1a1a1a;
+    --gray-medium: #333333;
+    --gray-light: #666666;
+    --shadow-1: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-2: 0 4px 16px rgba(0, 0, 0, 0.4);
+    --shadow-3: 0 8px 24px rgba(0, 0, 0, 0.5);
+    --shadow-glow: 0 0 20px rgba(237, 172, 0, 0.3);
+    --transition-fast: 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+    --transition-normal: 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+    --transition-slow: 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+/* Skip Link for Accessibility */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary-gold);
+    color: var(--black);
+    padding: 8px 16px;
+    text-decoration: none;
+    z-index: 10000;
+    font-weight: 500;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--white);
+    background-color: var(--black);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* ===================================
+   Dynamic Header - Hidden initially
+   =================================== */
+
+.dynamic-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-2);
+}
+
+/* Header is always visible, only logo changes on scroll */
+.dynamic-header.scrolled {
+    /* Header stays the same, only logo animation changes */
+}
+
+.dynamic-header .navbar {
+    padding: 0.5rem 1rem;
+    transition: padding var(--transition-normal);
+}
+
+.dynamic-header.scrolled .navbar {
+    padding: 0.75rem 1.5rem;
+}
+
+/* Logo Container in Header */
+.header-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    transition: gap var(--transition-normal);
+}
+
+.dynamic-header.scrolled .header-logo-container {
+    gap: 15px;
+}
+
+/* Header Logo Image (Record) - Hidden initially, slides in on scroll */
+.header-logo-image {
+    width: 0;
+    height: 50px;
+    opacity: 0;
+    transform: scale(0) translateX(-30px) rotate(-180deg);
+    transition: all var(--transition-slow);
+    object-fit: contain;
+}
+
+.dynamic-header.scrolled .header-logo-image {
+    width: 50px;
+    opacity: 1;
+    transform: scale(1) translateX(0) rotate(0deg);
+}
+
+/* Header Logo Text (SEVEN) - Always visible */
+.header-logo-text {
+    height: 35px;
+    opacity: 1;
+    transform: translateX(0);
+    transition: all var(--transition-normal);
+    overflow: visible;
+    display: flex;
+    align-items: center;
+}
+
+.header-logo-text img {
+    height: 35px;
+    width: auto;
+    max-width: none;
+}
+
+/* Navigation Links */
+.dynamic-header .navbar-toggler {
+    border-color: var(--primary-gold);
+}
+
+.dynamic-header .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23EDAC00' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.dynamic-header .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--white);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: all var(--transition-fast);
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.dynamic-header .nav-link:hover {
+    color: var(--primary-gold);
+}
+
+.dynamic-header .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-gold), var(--light-gold));
+    transition: all var(--transition-fast);
+    transform: translateX(-50%);
+    box-shadow: var(--shadow-glow);
+}
+
+.dynamic-header .nav-link:hover::after {
+    width: 80%;
+}
+
+.dynamic-header .nav-link .material-icons {
+    font-size: 18px;
+    color: var(--primary-gold);
+}
+
+/* ===================================
+   Hero Section with Large Logo
+   =================================== */
+
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        radial-gradient(circle at 30% 50%, rgba(237, 172, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 70% 70%, rgba(237, 172, 0, 0.08) 0%, transparent 50%),
+        linear-gradient(180deg, var(--black) 0%, var(--gray-dark) 50%, var(--gray-medium) 85%, var(--black) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated background particles */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(2px 2px at 20% 30%, var(--primary-gold), transparent),
+        radial-gradient(2px 2px at 60% 70%, var(--primary-gold), transparent),
+        radial-gradient(1px 1px at 50% 50%, var(--primary-gold), transparent),
+        radial-gradient(1px 1px at 80% 10%, var(--primary-gold), transparent);
+    background-size: 200% 200%;
+    animation: sparkle 20s linear infinite;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        background-position: 0% 0%, 100% 100%, 50% 50%, 80% 10%;
+    }
+    50% {
+        background-position: 100% 100%, 0% 0%, 80% 20%, 20% 90%;
+    }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+}
+
+/* Hero Logo Wrapper */
+.hero-logo-wrapper {
+    animation: fadeInScale 1.2s ease-out;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Hero Logo (Complete Logo with Record + Text) */
+.hero-logo {
+    max-width: 450px;
+    margin: 0 auto;
+    animation: float 8s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.hero-logo-svg {
+    width: 100%;
+    height: auto;
+}
+
+/* Responsive Logo Sizes */
+@media (max-width: 768px) {
+    .hero-logo {
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-logo {
+        max-width: 280px;
+    }
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    margin-top: 4rem;
+    animation: bounce 2s infinite;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.scroll-indicator.hidden {
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-15px);
+    }
+    60% {
+        transform: translateY(-8px);
+    }
+}
+
+.scroll-indicator .material-icons {
+    font-size: 48px;
+    color: var(--primary-gold);
+}
+
+.scroll-indicator p {
+    margin-top: 0.5rem;
+    color: var(--gray-light);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+}
+
+/* ===================================
+   Content Sections
+   =================================== */
+
+.content-section {
+    padding: 5rem 0;
+    position: relative;
+}
+
+.content-section.bg-light {
+    background: linear-gradient(180deg, var(--gray-dark) 0%, var(--black) 100%);
+}
+
+/* Bandinfo Section with Gradient */
+.bandinfo-section {
+    background: linear-gradient(180deg, var(--black) 0%, var(--gray-dark) 50%, var(--black) 100%);
+}
+
+/* Media Section with distinct background */
+.media-section {
+    background: linear-gradient(180deg, var(--gray-dark) 0%, var(--black) 100%);
+}
+
+/* Band Photo */
+.band-photo-container {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-3);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.band-photo-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+}
+
+.band-photo {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.title-icon {
+    font-size: 2.5rem;
+    color: var(--primary-gold);
+}
+
+/* ===================================
+   Material Cards (Dark Theme)
+   =================================== */
+
+.material-card {
+    background: linear-gradient(135deg, var(--gray-dark) 0%, var(--gray-medium) 100%);
+    border-radius: 12px;
+    transition: all var(--transition-normal);
+    overflow: hidden;
+    border: 1px solid rgba(237, 172, 0, 0.1);
+}
+
+.elevation-4 {
+    box-shadow: var(--shadow-1);
+}
+
+.elevation-6 {
+    box-shadow: var(--shadow-2);
+}
+
+.elevation-8 {
+    box-shadow: var(--shadow-3);
+}
+
+.material-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-3);
+    border-color: rgba(237, 172, 0, 0.3);
+}
+
+/* Value List */
+.value-list {
+    list-style: none;
+    padding: 0;
+}
+
+.value-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    font-size: 1.1rem;
+    color: var(--white);
+}
+
+.value-list li .material-icons {
+    color: var(--primary-gold);
+    font-size: 24px;
+}
+
+/* ===================================
+   Service Cards
+   =================================== */
+
+.service-card {
+    height: 100%;
+    transition: all var(--transition-normal);
+    padding: 2rem;
+}
+
+.service-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-2);
+    transition: all var(--transition-normal);
+}
+
+.service-card:hover .service-icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.service-icon {
+    font-size: 40px;
+    color: var(--black);
+}
+
+.service-card h4 {
+    font-weight: 600;
+    color: var(--white);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.service-card p {
+    color: var(--gray-light);
+    margin: 0;
+}
+
+/* ===================================
+   Material Input Fields (Dark Theme)
+   =================================== */
+
+.material-input {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.material-input .input-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-gold);
+    font-size: 24px;
+    z-index: 1;
+}
+
+.material-input textarea + .input-icon {
+    top: 20px;
+    transform: none;
+}
+
+.material-input .form-control {
+    padding-left: 48px;
+    border: 2px solid rgba(237, 172, 0, 0.3);
+    border-radius: 8px;
+    transition: all var(--transition-fast);
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--white);
+}
+
+.material-input .form-control::placeholder {
+    color: var(--gray-light);
+}
+
+.material-input .form-control:focus {
+    border-color: var(--primary-gold);
+    box-shadow: 0 0 0 0.2rem rgba(237, 172, 0, 0.25);
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ===================================
+   Material Buttons
+   =================================== */
+
+.material-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 36px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all var(--transition-fast);
+    box-shadow: var(--shadow-1);
+    border: none;
+    font-size: 0.95rem;
+}
+
+.material-btn:hover {
+    box-shadow: var(--shadow-3);
+    transform: translateY(-3px);
+}
+
+.material-btn:active {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-1);
+}
+
+.btn-primary.material-btn {
+    background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold));
+    color: var(--black);
+}
+
+.btn-primary.material-btn:hover {
+    background: linear-gradient(135deg, var(--light-gold), var(--primary-gold));
+}
+
+.btn-outline-primary.material-btn {
+    border: 2px solid var(--primary-gold);
+    color: var(--primary-gold);
+    background: transparent;
+}
+
+.btn-outline-primary.material-btn:hover {
+    background: var(--primary-gold);
+    color: var(--black);
+}
+
+/* ===================================
+   Footer
+   =================================== */
+
+.material-footer {
+    background: linear-gradient(135deg, var(--black), var(--gray-dark));
+    color: var(--white);
+    border-top: 1px solid rgba(237, 172, 0, 0.2);
+}
+
+.footer-link {
+    color: var(--primary-gold);
+    transition: all var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--primary-gold);
+}
+
+.footer-link:hover {
+    background: var(--primary-gold);
+    color: var(--black);
+    transform: translateY(-3px) rotate(5deg);
+}
+
+/* ===================================
+   Floating Action Button (FAB)
+   =================================== */
+
+.fab {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold));
+    color: var(--black);
+    border: none;
+    box-shadow: var(--shadow-2);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-normal);
+    opacity: 0;
+    transform: scale(0);
+    z-index: 999;
+}
+
+.fab.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.fab:hover {
+    box-shadow: var(--shadow-3);
+    transform: scale(1.15) rotate(90deg);
+}
+
+.fab .material-icons {
+    font-size: 24px;
+}
+
+/* ===================================
+   Responsive Design
+   =================================== */
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .header-logo-text {
+        height: 25px;
+    }
+    
+    .header-logo-text img {
+        height: 25px;
+    }
+    
+    .dynamic-header.scrolled .header-logo-image {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .dynamic-header .navbar {
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .scroll-indicator .material-icons {
+        font-size: 36px;
+    }
+    
+    .fab {
+        bottom: 20px;
+        right: 20px;
+        width: 48px;
+        height: 48px;
+    }
+    
+    .section-title {
+        font-size: 1.75rem;
+        letter-spacing: 2px;
+    }
+    
+    .header-logo-text {
+        height: 20px;
+    }
+    
+    .header-logo-text img {
+        height: 20px;
+    }
+    
+    .dynamic-header.scrolled .header-logo-image {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .dynamic-header .navbar {
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+/* ===================================
+   Utility Classes
+   =================================== */
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Selection Color */
+::selection {
+    background-color: var(--primary-gold);
+    color: var(--black);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--black);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-gold);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--light-gold);
+}

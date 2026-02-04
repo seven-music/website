@@ -1,0 +1,10 @@
+# robots.txt für seven-music.de
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://seven-music.de/sitemap.xml
+
+# Crawl-Delay für höfliches Crawling
+Crawl-delay: 10
