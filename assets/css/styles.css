@@ -188,6 +188,17 @@ body {
     color: var(--primary-gold);
 }
 
+/* Active Navigation Link Styling */
+.dynamic-header .nav-link.active {
+    color: var(--primary-gold);
+    font-weight: 600;
+}
+
+.dynamic-header .nav-link.active::after {
+    width: 100%;
+    background: linear-gradient(90deg, var(--primary-gold), var(--light-gold));
+}
+
 /* ===================================
    Hero Section with Large Logo
    =================================== */
@@ -377,18 +388,21 @@ body {
     font-size: 2.5rem;
     font-weight: 700;
     color: var(--white);
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
     gap: 1rem;
     margin-bottom: 3rem;
     text-transform: uppercase;
     letter-spacing: 3px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .title-icon {
     font-size: 2.5rem;
     color: var(--primary-gold);
+    flex-shrink: 0;
 }
 
 /* ===================================
@@ -729,6 +743,206 @@ html {
     width: 12px;
 }
 
+
+/* ===================================
+   Instagram Feed Section
+   =================================== */
+
+/* Instagram Preview Grid (Static Placeholders) */
+.instagram-preview-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.instagram-preview-item {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--gray-dark) 0%, var(--gray-medium) 100%);
+    border: 1px solid rgba(237, 172, 0, 0.1);
+    transition: all var(--transition-normal);
+}
+
+.instagram-preview-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--transition-normal);
+}
+
+.instagram-preview-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-3);
+    border-color: rgba(237, 172, 0, 0.3);
+}
+
+.instagram-preview-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Fallback for old placeholder styles (if needed) */
+.instagram-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray-light);
+    transition: all var(--transition-normal);
+}
+
+.instagram-placeholder .material-icons {
+    font-size: 48px;
+    color: var(--primary-gold);
+    opacity: 0.5;
+    margin-bottom: 0.5rem;
+}
+
+.instagram-placeholder p {
+    font-size: 0.9rem;
+    margin: 0;
+    opacity: 0.7;
+}
+
+/* DSGVO Consent Overlay */
+.instagram-consent-overlay {
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.instagram-consent-card {
+    max-width: 600px;
+    text-align: center;
+    background: linear-gradient(135deg, var(--gray-dark) 0%, var(--gray-medium) 100%);
+}
+
+.instagram-consent-card h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.instagram-consent-card a {
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.instagram-consent-card a:hover {
+    color: var(--light-gold);
+    text-decoration: underline;
+}
+
+/* Instagram Feed Container */
+.instagram-feed-container {
+    margin-top: 2rem;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Hide preview and overlay when feed is loaded */
+.instagram-feed-loaded .instagram-preview-grid,
+.instagram-feed-loaded .instagram-consent-overlay {
+    display: none;
+}
+
+.instagram-feed-loaded .instagram-feed-container {
+    display: block !important;
+}
+
+/* Responsive Grid */
+@media (max-width: 992px) {
+
+/* ===================================
+   GLightbox Custom Styling
+   =================================== */
+
+/* Make links look like regular items */
+a.instagram-preview-item {
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+}
+
+/* Add subtle hover indicator for clickable items */
+a.instagram-preview-item::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(237, 172, 0, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+    pointer-events: none;
+    font-family: 'Material Icons';
+    font-size: 32px;
+    color: var(--black);
+    line-height: 60px;
+    text-align: center;
+}
+
+a.instagram-preview-item::after {
+    content: 'zoom_in';
+}
+
+a.instagram-preview-item:hover::after {
+    opacity: 1;
+}
+
+/* Ensure image stays below overlay */
+a.instagram-preview-item img {
+    position: relative;
+    z-index: 1;
+}
+    .instagram-preview-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.75rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .instagram-preview-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.5rem;
+    }
+    
+    .instagram-placeholder .material-icons {
+        font-size: 36px;
+    }
+    
+    .instagram-placeholder p {
+        font-size: 0.75rem;
+    }
+    
+    .instagram-consent-card {
+        padding: 2rem 1.5rem !important;
+    }
+    
+    .instagram-consent-card h3 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .instagram-preview-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+}
 ::-webkit-scrollbar-track {
     background: var(--black);
 }

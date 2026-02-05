@@ -208,9 +208,9 @@ document.addEventListener('click', (e) => {
 // ===================================
 
 const imagesToPreload = [
-    'Logo.svg',
-    'Record.svg',
-    'Text.svg'
+    './assets/brand/Logo.svg',
+    './assets/brand/Record.svg',
+    './assets/brand/Text.svg'
 ];
 
 imagesToPreload.forEach(src => {
@@ -224,4 +224,99 @@ imagesToPreload.forEach(src => {
 
 console.log('%c🎸 SEVEN music Website 🎸', 'font-size: 20px; font-weight: bold; color: #EDAC00;');
 console.log('%cDeveloped with ❤️ and 🎵', 'font-size: 14px; color: #666;');
+
+// ===================================
+// Instagram Feed DSGVO Consent
+// ===================================
+
+const loadInstagramBtn = document.getElementById('loadInstagramFeed');
+const instagramSection = document.getElementById('instagram');
+
+if (loadInstagramBtn && instagramSection) {
+    loadInstagramBtn.addEventListener('click', () => {
+        // Add class to hide preview and show feed
+        instagramSection.classList.add('instagram-feed-loaded');
+        
+        // Store consent in localStorage
+        localStorage.setItem('instagramFeedConsent', 'true');
+        
+        // Optional: Track consent for analytics
+        console.log('Instagram Feed consent given');
+        
+        // Show success message briefly
+        const feedContainer = document.getElementById('instagramFeedContainer');
+        if (feedContainer) {
+            feedContainer.style.display = 'block';
+            
+            // Smooth scroll to feed
+            setTimeout(() => {
+                feedContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 300);
+        }
+    });
+    
+    // Check if user already gave consent
+    if (localStorage.getItem('instagramFeedConsent') === 'true') {
+        instagramSection.classList.add('instagram-feed-loaded');
+        const feedContainer = document.getElementById('instagramFeedContainer');
+        if (feedContainer) {
+            feedContainer.style.display = 'block';
+
+// ===================================
+// Lightbox2 Configuration
+// ===================================
+
+// Configure Lightbox2 options
+lightbox.option({
+    'resizeDuration': 200,
+    'wrapAround': true,
+    'albumLabel': 'Bild %1 von %2',
+    'fadeDuration': 300,
+    'imageFadeDuration': 300,
+    'disableScrolling': true
+});
+
+// Custom styling for Lightbox2 to match SEVEN music theme
+const lightboxStyle = document.createElement('style');
+lightboxStyle.textContent = `
+    .lightbox .lb-image {
+        border-radius: 8px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    }
+    
+    .lightbox .lb-dataContainer {
+        background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
+        border-radius: 0 0 8px 8px;
+    }
+    
+    .lightbox .lb-data .lb-caption {
+        color: #EDAC00;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
+    
+    .lightbox .lb-data .lb-number {
+        color: #FFFFFF;
+    }
+    
+    .lightbox .lb-nav a.lb-prev,
+    .lightbox .lb-nav a.lb-next {
+        opacity: 1;
+    }
+    
+    .lightbox .lb-nav a.lb-prev:hover,
+    .lightbox .lb-nav a.lb-next:hover {
+        opacity: 1;
+        filter: brightness(1.2);
+    }
+    
+    .lb-cancel {
+        background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj48cGF0aCBmaWxsPSIjRURBQzAwIiBkPSJNMTYgMEMxMiAwIDggMiA0IDZDMCAxMCAwIDE0IDAgMTZjMCAyIDAgNiA0IDEwYzQgNCA4IDYgMTIgNnM4LTIgMTItNmM0LTQgNC04IDQtMTBzMC02LTQtMTBjLTQtNC04LTYtMTItNnptNiAyMGwtMiAyLTQtNC00IDQtMi0yIDQtNC00LTQgMi0yIDQgNCA0LTQgMiAyLTQgNCA0IDR6Ii8+PC9zdmc+) no-repeat;
+    }
+`;
+document.head.appendChild(lightboxStyle);
+        }
+    }
+}
 console.log('%cInterested in our music? Check out our latest album!', 'font-size: 12px; color: #999;');

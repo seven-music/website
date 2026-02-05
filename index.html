@@ -46,6 +46,9 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <!-- Lightbox2 CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
 </head>
 <body>
     <!-- Skip Navigation Link for Accessibility -->
@@ -89,6 +92,12 @@
                             <a class="nav-link" href="#seven" aria-label="Zu Wofür steht SEVEN?">
                                 <span class="material-icons" aria-hidden="true">star</span>
                                 Wofür steht SEVEN?
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#instagram" aria-label="Zu Instagram">
+                                <span class="material-icons" aria-hidden="true">photo_camera</span>
+                                Instagram
                             </a>
                         </li>
                         <li class="nav-item">
@@ -173,11 +182,6 @@
                             ungewöhnlicher Songauswahl und spürbarer Bühnenleidenschaft sorgte die Band schon am Auftaktabend
                             für ausgelassene Stimmung und volle Plätze.
                         </p>
-                        
-                        <p style="color: var(--gray-light); line-height: 1.8;">
-                            Die Band ist verfügbar für Events in <strong style="color: var(--primary-gold);">Münster, Emsdetten, Greven, Borghorst</strong> und der gesamten Region Münsterland –
-                            ob Stadtfest, Firmenfeier, Hochzeit oder Club-Konzert.
-                        </p>
 
                         <p class="mt-4 mb-2" style="color: var(--primary-gold);">
                             <strong>Stil:</strong> <span style="color: var(--gray-light);">anspruchsvolle Coverversionen aus 60 Jahren Pop, Rock, Funk & Soul</span>
@@ -190,7 +194,6 @@
             </div>
         </div>
     </section>
-
     <!-- Wofür steht SEVEN? -->
     <section id="seven" class="content-section bandinfo-section py-5" aria-labelledby="seven-heading">
         <div class="container">
@@ -198,7 +201,7 @@
                 <div class="col-lg-9">
                     <h2 id="seven-heading" class="section-title text-center mb-5">
                         <span class="material-icons title-icon" aria-hidden="true">star</span>
-                        Wofür steht <img src="assets/brand/Text.svg" alt="SEVEN" style="height: 0.85em; vertical-align: baseline; filter: brightness(0) invert(1); display: inline; margin: 0 0.15em;">?
+                        Wofür steht <img src="assets/brand/Text.svg" alt="SEVEN" style="height: 0.85em; vertical-align: baseline; filter: brightness(0) invert(1); display: inline;">?
                     </h2>
                     
                     <div class="material-card elevation-6 p-4 p-md-5 text-center">
@@ -223,12 +226,36 @@
             </div>
         </div>
     </section>
+    <!-- Instagram -->
+    <section id="instagram" class="content-section py-5" aria-labelledby="instagram-heading">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 id="instagram-heading" class="mb-4" style="color: var(--white); font-size: 2.5rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                        <span class="material-icons" style="color: var(--primary-gold); font-size: 2.5rem;" aria-hidden="true">photo_camera</span>
+                        Instagram
+                    </h2>
+                    <p class="mb-4" style="color: var(--gray-light); font-size: 1.2rem; line-height: 1.8;">
+                        Folge uns auf Instagram für <strong style="color: var(--primary-gold);">aktuelle News, Videos und Termine</strong> von unseren Auftritten!
+                    </p>
+                    <p class="mb-5" style="color: var(--gray-light); font-size: 1.1rem;">
+                        Dort berichten wir regelmäßig über kommende Gigs, teilen Backstage-Momente und halten euch auf dem Laufenden.
+                    </p>
+                    
+                    <a href="https://instagram.com/7even.band" target="_blank" rel="noopener noreferrer" class="material-btn btn-primary btn-lg" style="font-size: 1.2rem; padding: 18px 48px;" aria-label="SEVEN music auf Instagram folgen">
+                        <span class="material-icons" style="font-size: 28px;" aria-hidden="true">photo_camera</span>
+                        @7even.band auf Instagram
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Media -->
     <section id="music" class="content-section media-section py-5" aria-labelledby="media-heading">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-9">
+                <div class="col-lg-10">
                     <h2 id="media-heading" class="section-title text-center mb-4">
                         <span class="material-icons title-icon" aria-hidden="true">play_circle</span>
                         Media
@@ -237,7 +264,37 @@
                         Live ist das, worum es geht. Hier ein paar Eindrücke – mehr gern auf Anfrage oder auf unseren Social-Kanälen.
                     </p>
 
-                    <div class="row g-4">
+                    <div class="instagram-preview-grid mb-3 mt-4">
+                        <a href="assets/images/0K0A5145.JPG" class="instagram-preview-item" data-lightbox="gallery" data-title="SEVEN music - Emsdettener September 2024">
+                            <img src="assets/images/0K0A5145.JPG" alt="SEVEN, Emsdettener September 2024" loading="lazy">
+                        </a>
+                        <a href="assets/images/0K0A5050.JPG" class="instagram-preview-item" data-lightbox="gallery" data-title="Lukas - Emsdettener September 2024">
+                            <img src="assets/images/0K0A5050.JPG" alt="Lukas, Emsdettener September 2024" loading="lazy">
+                        </a>
+                        <a href="assets/images/0K0A5235.JPG" class="instagram-preview-item" data-lightbox="gallery" data-title="Christoph - Emsdettener September 2024">
+                            <img src="assets/images/0K0A5235.JPG" alt="Christoph, Emsdettener September 2024" loading="lazy">
+                        </a>
+                        <a href="assets/images/0K0A5210.JPG" class="instagram-preview-item" data-lightbox="gallery" data-title="Tobi - Emsdettener September 2024">
+                            <img src="assets/images/0K0A5210.JPG" alt="Tobi, Emsdettener September 2024" loading="lazy">
+                        </a>
+                        <a href="assets/images/0K0A5131.JPG" class="instagram-preview-item" data-lightbox="gallery" data-title="Oli - Emsdettener September 2024">
+                            <img src="assets/images/0K0A5131.JPG" alt="Oli, Emsdettener September 2024" loading="lazy">
+                        </a>
+                        <a href="assets/images/0K0A5255.JPG" class="instagram-preview-item" data-lightbox="gallery" data-title="Christoph - Emsdettener September 2024">
+                            <img src="assets/images/0K0A5255.JPG" alt="Christoph, Emsdettener September 2024" loading="lazy">
+                        </a>
+                        <a href="assets/images/0K0A5079.JPG" class="instagram-preview-item" data-lightbox="gallery" data-title="Marius - Emsdettener September 2024">
+                            <img src="assets/images/0K0A5079.JPG" alt="Marius, Emsdettener September 2024" loading="lazy">
+                        </a>
+                        <a href="assets/images/0K0A5102.JPG" class="instagram-preview-item" data-lightbox="gallery" data-title="Ralph - Emsdettener September 2024">
+                            <img src="assets/images/0K0A5102.JPG" alt="Ralph, Emsdettener September 2024" loading="lazy">
+                        </a>
+                    </div>
+                    <p class="text-end mb-5" style="color: var(--gray-light); font-size: 0.9rem; font-style: italic;">
+                        Foto: Tom Wolters
+                    </p>
+
+                    <div class="row g-4 mt-5">
                         <!-- YouTube Videos - Aktuell auskommentiert, da Kanal noch nicht verfügbar -->
                         <!--
                         <div class="col-md-6">
@@ -424,6 +481,7 @@
     <button class="fab" id="scrollToTop" aria-label="Nach oben zum Seitenanfang scrollen">
         <span class="material-icons" aria-hidden="true">arrow_upward</span>
     </button>
+    
     <!-- Structured Data (JSON-LD) für lokale SEO -->
     <script type="application/ld+json">
     {
@@ -477,6 +535,9 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Lightbox2 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
     
     <!-- Custom JS -->
     <script src="assets/js/script.js"></script>
