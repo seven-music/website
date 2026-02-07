@@ -343,6 +343,17 @@ body {
     .hero-logo {
         max-width: 280px;
     }
+    
+    /* Move Instagram icon down on mobile to avoid overlap with logo */
+    .hero-instagram-link {
+        top: auto;
+        bottom: 20px;
+        transform: none;
+    }
+    
+    .hero-instagram-link:hover {
+        transform: scale(1.15) rotate(5deg);
+    }
 }
 
 /* Scroll Indicator */
