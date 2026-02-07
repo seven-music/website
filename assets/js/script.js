@@ -41,6 +41,22 @@ window.addEventListener('scroll', () => {
     }
     
     lastScrollTop = scrollTop;
+    // Stop scroll button before footer
+    const footer = document.querySelector('.material-footer');
+    if (footer) {
+        const footerTop = footer.getBoundingClientRect().top + scrollTop;
+        const windowHeight = window.innerHeight;
+        const scrollButtonHeight = 56; // FAB height
+        const bottomMargin = 30; // Original bottom margin
+        
+        if (scrollTop + windowHeight > footerTop) {
+            // Calculate how much to move up
+            const overlap = (scrollTop + windowHeight) - footerTop;
+            scrollToTopBtn.style.bottom = `${bottomMargin + overlap}px`;
+        } else {
+            scrollToTopBtn.style.bottom = '30px';
+        }
+    }
 });
 
 // ===================================

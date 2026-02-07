@@ -188,6 +188,18 @@ body {
     color: var(--primary-gold);
 }
 
+.dynamic-header .nav-link .nav-icon {
+    width: 18px;
+    height: 18px;
+    fill: var(--primary-gold);
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+    flex-shrink: 0;
+    stroke: var(--primary-gold);
+    stroke-width: 1.0;
+}
+
 /* Active Navigation Link Styling */
 .dynamic-header .nav-link.active {
     color: var(--primary-gold);
@@ -255,6 +267,7 @@ body {
 /* Hero Logo Wrapper */
 .hero-logo-wrapper {
     animation: fadeInScale 1.2s ease-out;
+    position: relative;
 }
 
 @keyframes fadeInScale {
@@ -294,6 +307,36 @@ body {
     .hero-logo {
         max-width: 350px;
     }
+}
+
+/* Hero Instagram Link */
+.hero-instagram-link {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    transition: all var(--transition-normal);
+    z-index: 100;
+}
+
+.hero-instagram-link:hover {
+    transform: translateY(-50%) scale(1.15) rotate(5deg);
+}
+
+.hero-instagram-icon {
+    filter: drop-shadow(0 2px 6px rgba(237, 172, 0, 0.5));
+    transition: all var(--transition-normal);
+    display: block;
+    color: var(--primary-gold);
+}
+
+.hero-instagram-icon use {
+    fill: currentColor;
+}
+
+.hero-instagram-link:hover .hero-instagram-icon {
+    color: var(--light-gold);
+    filter: drop-shadow(0 4px 12px rgba(237, 172, 0, 0.9));
 }
 
 @media (max-width: 576px) {
@@ -360,6 +403,11 @@ body {
 }
 
 /* Media Section with distinct background */
+.insta-section {
+    background: linear-gradient(180deg, var(--gray-dark) 0%, var(--black) 100%);
+}
+
+/* Media Section with distinct background */
 .media-section {
     background: linear-gradient(180deg, var(--gray-dark) 0%, var(--black) 100%);
 }
@@ -403,6 +451,54 @@ body {
     font-size: 2.5rem;
     color: var(--primary-gold);
     flex-shrink: 0;
+}
+
+svg.title-icon {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    vertical-align: middle;
+    fill: currentColor;   /* übernimmt .title-icon{color:...} */
+    stroke: currentColor;
+    stroke-width: 0.3;
+}
+
+/* Navigation Icon (for SVG icons in nav) */
+.nav-link .nav-icon {
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    vertical-align: middle;
+    fill: var(--primary-gold);
+    margin-right: 0.5rem;
+    flex-shrink: 0;
+    stroke: var(--primary-gold);
+    stroke-width: 0.3;
+}
+
+/* Button Icon (for SVG icons in buttons) */
+.btn-icon,
+.material-btn .btn-icon {
+    width: 28px;
+    height: 28px;
+    display: inline-block;
+    vertical-align: middle;
+    fill: currentColor;
+    margin-right: 0.5rem;
+    flex-shrink: 0;
+    stroke: currentColor;
+    stroke-width: 0.3;
+}
+
+/* Ensure consistent sizing in different button sizes */
+.btn-lg .btn-icon {
+    width: 28px;
+    height: 28px;
+}
+
+.btn-sm .btn-icon {
+    width: 20px;
+    height: 20px;
 }
 
 /* ===================================
@@ -620,6 +716,17 @@ body {
     background: var(--primary-gold);
     color: var(--black);
     transform: translateY(-3px) rotate(5deg);
+}
+
+.footer-link .footer-icon {
+    width: 24px;
+    height: 24px;
+    fill: var(--primary-gold);
+    transition: fill var(--transition-fast);
+}
+
+.footer-link:hover .footer-icon {
+    fill: var(--black);
 }
 
 /* ===================================

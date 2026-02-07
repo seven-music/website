@@ -31,6 +31,15 @@
                     </div>
                 </a>
                 
+                <!-- SVG Icon Sprite (hidden, for reuse) -->
+                <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                    <defs>
+                        <symbol id="icon-instagram" viewBox="0 0 24 24">
+                            <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Zm5.25-.9a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3Z"/>
+                        </symbol>
+                    </defs>
+                </svg>
+                
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -41,24 +50,6 @@
                             <a class="nav-link" href="index.html#home">
                                 <span class="material-icons">home</span>
                                 Home
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html#about">
-                                <span class="material-icons">info</span>
-                                Über uns
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html#music">
-                                <span class="material-icons">music_note</span>
-                                Musik
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html#contact">
-                                <span class="material-icons">contact_mail</span>
-                                Kontakt
                             </a>
                         </li>
                     </ul>
@@ -176,12 +167,16 @@
                     </p>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
-                    <a href="https://instagram.com/7even.band" target="_blank" rel="noopener noreferrer" class="footer-link me-3" aria-label="Instagram">
-                        <span class="material-icons">photo_camera</span>
+                    <a href="https://instagram.com/7even.band" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="SEVEN music auf Instagram besuchen">
+                        <svg class="footer-icon" aria-hidden="true">
+                            <use href="#icon-instagram"></use>
+                        </svg>
                     </a>
-                    <a href="https://youtube.com/@sevenband" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="YouTube">
+                    <!-- YouTube Link - Aktuell auskommentiert
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="YouTube">
                         <span class="material-icons">play_circle</span>
                     </a>
+                    -->
                 </div>
             </div>
         </div>

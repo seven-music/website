@@ -27,10 +27,10 @@
     <meta property="twitter:image" content="https://seven-music.de/bandfoto.jpg">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="SEVEN music" />
     
     <!-- Geo Tags -->
@@ -77,6 +77,15 @@
                     </div>
                 </a>
                 
+                <!-- SVG Icon Sprite (hidden, for reuse) -->
+                <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                    <defs>
+                        <symbol id="icon-instagram" viewBox="0 0 24 24">
+                            <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Zm5.25-.9a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3Z"/>
+                        </symbol>
+                    </defs>
+                </svg>
+                
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -103,7 +112,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#instagram" aria-label="Zu Instagram">
-                                <span class="material-icons" aria-hidden="true">photo_camera</span>
+                                <svg class="nav-icon" aria-hidden="true">
+                                    <use href="#icon-instagram"></use>
+                                </svg>
                                 Instagram
                             </a>
                         </li>
@@ -139,6 +150,13 @@
                 <div class="hero-logo" id="heroLogo">
                     <img src="assets/brand/Logo.svg" alt="SEVEN music Logo" class="hero-logo-svg">
                 </div>
+                
+                <!-- Instagram Quick Link -->
+                <a href="https://instagram.com/7even.band" target="_blank" rel="noopener noreferrer" class="hero-instagram-link" aria-label="SEVEN music auf Instagram folgen">
+                    <svg class="hero-instagram-icon" width="32" height="32" aria-hidden="true">
+                        <use href="#icon-instagram"></use>
+                    </svg>
+                </a>
                 
                 <!-- Scroll Indicator -->
                 <div class="scroll-indicator">
@@ -216,8 +234,7 @@
                             sieben Töne, sieben Weltwunder, sieben Meere,<br>
                             die glorreichen Sieben, sieben Zwerge, sieben Regenbogenfarben,<br>
                             sieben Todsünden, der siebte Sinn, der siebte Himmel,<br>
-                            sieben Leben (hat mit uns nichts zu tun – aber die 7 passt halt),<br>
-                            „eins zwei drei vier fünf sechs sie–ben" (Achtel gehen immer)<br>
+                            sieben Leben, „eins zwei drei vier fünf sechs sie–ben“ (Achtel gehen immer)<br>
                             und der Siebenschläfer.
                         </p>
                         <p class="mb-4" style="color: var(--primary-gold); font-size: 1.2rem; font-weight: 500;">
@@ -234,25 +251,31 @@
         </div>
     </section>
     <!-- Instagram -->
-    <section id="instagram" class="content-section py-5" aria-labelledby="instagram-heading">
+    <section id="instagram" class="content-section insta-section py-5" aria-labelledby="instagram-heading">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-8 text-center">
-                    <h2 id="instagram-heading" class="mb-4" style="color: var(--white); font-size: 2.5rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
-                        <span class="material-icons" style="color: var(--primary-gold); font-size: 2.5rem;" aria-hidden="true">photo_camera</span>
+                <div class="col-lg-8">
+                    <h2 id="instagram-heading" class="section-title text-center mb-5">
+                        <svg class="title-icon" aria-hidden="true">
+                            <use href="#icon-instagram"></use>
+                        </svg>
                         Instagram
                     </h2>
-                    <p class="mb-4" style="color: var(--gray-light); font-size: 1.2rem; line-height: 1.8;">
-                        Folge uns auf Instagram für <strong style="color: var(--primary-gold);">aktuelle News, Videos und Termine</strong> von unseren Auftritten!
-                    </p>
-                    <p class="mb-5" style="color: var(--gray-light); font-size: 1.1rem;">
-                        Dort berichten wir regelmäßig über kommende Gigs, teilen Backstage-Momente und halten euch auf dem Laufenden.
-                    </p>
-                    
-                    <a href="https://instagram.com/7even.band" target="_blank" rel="noopener noreferrer" class="material-btn btn-primary btn-lg" style="font-size: 1.2rem; padding: 18px 48px;" aria-label="SEVEN music auf Instagram folgen">
-                        <span class="material-icons" style="font-size: 28px;" aria-hidden="true">photo_camera</span>
-                        @7even.band auf Instagram
-                    </a>
+                    <div class="text-center">
+                        <p class="mb-4" style="color: var(--gray-light); font-size: 1.2rem; line-height: 1.8;">
+                            Folge uns auf Instagram für <strong style="color: var(--primary-gold);">aktuelle News, Videos und Termine</strong> von unseren Auftritten!
+                        </p>
+                        <p class="mb-5" style="color: var(--gray-light); font-size: 1.1rem;">
+                            Dort berichten wir regelmäßig über kommende Gigs, teilen Backstage-Momente und halten euch auf dem Laufenden.
+                        </p>
+                        
+                        <a href="https://instagram.com/7even.band" target="_blank" rel="noopener noreferrer" class="material-btn btn-primary btn-lg" style="font-size: 1.2rem; padding: 18px 48px;" aria-label="SEVEN music auf Instagram folgen">
+                            <svg class="btn-icon" aria-hidden="true">
+                                <use href="#icon-instagram"></use>
+                            </svg>
+                            @7even.band auf Instagram
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -459,7 +482,9 @@
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <a href="https://instagram.com/7even.band" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="SEVEN music auf Instagram besuchen">
-                        <span class="material-icons" aria-hidden="true">photo_camera</span>
+                        <svg class="footer-icon" aria-hidden="true">
+                            <use href="#icon-instagram"></use>
+                        </svg>
                     </a>
                     <!-- YouTube Link - Aktuell auskommentiert
                     <a href="#" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="YouTube">
