@@ -1067,153 +1067,139 @@ a.instagram-preview-item img {
    =================================== */
 
 .next-gig-section {
-    background: linear-gradient(135deg, var(--gray-dark) 0%, var(--black) 100%);
-    position: relative;
-    overflow: hidden;
-}
-
-.next-gig-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 20% 50%, rgba(237, 172, 0, 0.1) 0%, transparent 50%);
-    pointer-events: none;
+    background: var(--black);
+    padding: 2rem 0;
 }
 
 .next-gig-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 2px solid var(--primary-gold);
-    border-radius: 16px;
-    padding: 2.5rem;
-    position: relative;
-    backdrop-filter: blur(10px);
-    box-shadow: var(--shadow-3), var(--shadow-glow);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(237, 172, 0, 0.3);
+    border-radius: 8px;
+    padding: 1.5rem;
     transition: all var(--transition-normal);
 }
 
 .next-gig-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6), 0 0 30px rgba(237, 172, 0, 0.5);
+    border-color: rgba(237, 172, 0, 0.5);
+    background: rgba(255, 255, 255, 0.03);
 }
 
 .next-gig-title {
     color: var(--primary-gold);
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .next-gig-title .material-icons {
-    font-size: 2.5rem;
+    font-size: 1.3rem;
 }
 
 .next-gig-content > div {
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.75rem;
     display: flex;
     align-items: flex-start;
-    gap: 1rem;
+    gap: 0.75rem;
     color: var(--white);
+    font-size: 0.95rem;
 }
 
 .next-gig-content .material-icons {
     color: var(--primary-gold);
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     flex-shrink: 0;
+    opacity: 0.7;
 }
 
 .next-gig-date,
 .next-gig-time {
-    font-size: 1.2rem;
-    font-weight: 500;
+    font-size: 0.95rem;
+    font-weight: 400;
 }
 
 .next-gig-venue {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
 }
 
 .next-gig-venue strong {
     display: block;
-    color: var(--primary-gold);
-    font-size: 1.3rem;
-    margin-bottom: 0.25rem;
+    color: var(--white);
+    font-size: 1rem;
+    margin-bottom: 0.15rem;
+    font-weight: 500;
 }
 
 .next-gig-venue p {
     margin: 0;
     color: var(--gray-light);
+    font-size: 0.9rem;
 }
 
 .next-gig-description {
     color: var(--gray-light);
-    font-size: 1rem;
-    line-height: 1.6;
-    padding-left: 2.5rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    padding-left: 1.85rem;
+    font-style: italic;
 }
 
 .next-gig-actions {
     display: flex;
-    gap: 1rem;
-    margin-top: 2rem;
+    gap: 0.75rem;
+    margin-top: 1rem;
     flex-wrap: wrap;
+    padding-left: 1.85rem;
 }
 
 .next-gig-actions .btn {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
     font-weight: 500;
-    border-radius: 8px;
+    border-radius: 4px;
     transition: all var(--transition-fast);
 }
 
 .next-gig-actions .btn-primary {
     background: var(--primary-gold);
     color: var(--black);
-    border: 2px solid var(--primary-gold);
+    border: 1px solid var(--primary-gold);
 }
 
 .next-gig-actions .btn-primary:hover {
     background: var(--light-gold);
     border-color: var(--light-gold);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(237, 172, 0, 0.4);
 }
 
 .next-gig-actions .btn-outline-primary {
     background: transparent;
     color: var(--primary-gold);
-    border: 2px solid var(--primary-gold);
+    border: 1px solid var(--primary-gold);
 }
 
 .next-gig-actions .btn-outline-primary:hover {
-    background: var(--primary-gold);
-    color: var(--black);
-    transform: translateY(-2px);
+    background: rgba(237, 172, 0, 0.1);
 }
 
 @media (max-width: 768px) {
     .next-gig-card {
-        padding: 1.5rem;
+        padding: 1.25rem;
     }
     
     .next-gig-title {
-        font-size: 1.5rem;
-    }
-    
-    .next-gig-title .material-icons {
-        font-size: 2rem;
+        font-size: 1rem;
     }
     
     .next-gig-actions {
         flex-direction: column;
+        padding-left: 0;
     }
     
     .next-gig-actions .btn {

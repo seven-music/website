@@ -344,7 +344,8 @@ console.log('%cInterested in our music? Check out our latest album!', 'font-size
  * Load and display the next upcoming public gig from Dropbox JSON
  */
 async function loadNextGig() {
-    const GIGS_URL = 'assets/data/gigs.json';
+    // Add timestamp to prevent caching during development
+    const GIGS_URL = `assets/data/gigs.json?t=${Date.now()}`;
     
     try {
         const response = await fetch(GIGS_URL);
