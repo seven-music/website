@@ -336,3 +336,101 @@ document.head.appendChild(lightboxStyle);
     }
 }
 console.log('%cInterested in our music? Check out our latest album!', 'font-size: 12px; color: #999;');
+// ===================================
+// Next Gig Loader
+// ===================================
+
+/**
+ * Load and display the next upcoming public gig from Dropbox JSON
+ */
+async function loadNextGig() {
+    const GIGS_URL = 'assets/data/gigs.json';
+    
+    try {
+        const response = await fetch(GIGS_URL);
+        if (!response.ok) {
+            throw new Error('Failed to load gigs');
+        }
+        
+        const data = await response.json();
+        const today = new Date();
+        today.setHours(0, 0, 0, 0); // Reset time to start of day
+        
+        // Filter: only public gigs, only future dates
+        const upcomingGigs = data.gigs
+            .filter(gig => {
+                if (gig.type !== 'public') return false;
+                const gigDate = new Date(gig.date);
+                return gigDate >= today;
+            })
+            .sort((a, b) => new Date(a.date) - new Date(b.date));
+        
+        // If no upcoming gigs, hide section
+        if (upcomingGigs.length === 0) {
+            document.getElementById('next-gig').style.display = 'none';
+            return;
+        }
+        
+        // Display the next gig (first in sorted array)
+        const nextGig = upcomingGigs[0];
+        displayNextGig(nextGig);
+        
+    } catch (error) {
+        console.error('Error loading gigs:', error);
+        // Hide section on error
+        document.getElementById('next-gig').style.display = 'none';
+    }
+}
+
+/**
+ * Display gig information in the DOM
+ */
+function displayNextGig(gig) {
+    // Format date in German
+    const gigDate = new Date(gig.date);
+    const dateOptions = { 
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+    };
+    const formattedDate = gigDate.toLocaleDateString('de-DE', dateOptions);
+    
+    // Update DOM elements
+    document.getElementById('gig-date').textContent = formattedDate;
+    document.getElementById('gig-time').textContent = gig.time ? `${gig.time} Uhr` : '';
+    document.getElementById('gig-venue').textContent = gig.venue || '';
+    document.getElementById('gig-location').textContent = gig.location || '';
+    document.getElementById('gig-description').textContent = gig.description || '';
+    
+    // Handle optional links
+    const actionsDiv = document.getElementById('gig-actions');
+    const ticketLink = document.getElementById('gig-ticket-link');
+    const infoLink = document.getElementById('gig-info-link');
+    
+    let hasActions = false;
+    
+    if (gig.ticketUrl && gig.ticketUrl.trim() !== '') {
+        ticketLink.href = gig.ticketUrl;
+        ticketLink.style.display = 'inline-flex';
+        hasActions = true;
+    } else {
+        ticketLink.style.display = 'none';
+    }
+    
+    if (gig.infoUrl && gig.infoUrl.trim() !== '') {
+        infoLink.href = gig.infoUrl;
+        infoLink.style.display = 'inline-flex';
+        hasActions = true;
+    } else {
+        infoLink.style.display = 'none';
+    }
+    
+    actionsDiv.style.display = hasActions ? 'flex' : 'none';
+    
+    // Show the section
+    document.getElementById('next-gig').style.display = 'block';
+}
+
+// Load gigs when DOM is ready
+document.addEventListener('DOMContentLoaded', loadNextGig);
