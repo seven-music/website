@@ -449,6 +449,7 @@ body {
     overflow: hidden;
     box-shadow: var(--shadow-3);
     transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    margin-bottom: 1rem;
 }
 
 .band-photo-container:hover {
