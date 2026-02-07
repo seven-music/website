@@ -194,7 +194,6 @@ body {
     fill: var(--primary-gold);
     display: inline-block;
     vertical-align: middle;
-    margin-right: 0.5rem;
     flex-shrink: 0;
     stroke: var(--primary-gold);
     stroke-width: 1.0;
@@ -502,7 +501,6 @@ svg.title-icon {
     display: inline-block;
     vertical-align: middle;
     fill: var(--primary-gold);
-    margin-right: 0.5rem;
     flex-shrink: 0;
     stroke: var(--primary-gold);
     stroke-width: 0.3;
