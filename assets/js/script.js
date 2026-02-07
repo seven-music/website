@@ -76,10 +76,15 @@ scrollToTopBtn.addEventListener('click', () => {
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        
         const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
+        
+        // Only handle internal anchor links (starting with #)
+        // Ignore external links and empty anchors
+        if (!targetId || targetId === '#' || !targetId.startsWith('#')) {
+            return;
+        }
+        
+        e.preventDefault();
         
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
