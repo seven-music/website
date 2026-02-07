@@ -226,6 +226,27 @@ body {
         linear-gradient(180deg, var(--black) 0%, var(--gray-dark) 50%, var(--gray-medium) 85%, var(--black) 100%);
     position: relative;
     overflow: hidden;
+    padding-top: 80px; /* Space for fixed header */
+}
+
+/* For low-height viewports (landscape mobile), adjust layout */
+@media (max-height: 600px) {
+    .hero-section {
+        min-height: auto;
+        padding: 100px 1rem 60px;
+    }
+    
+    .hero-content {
+        padding: 1rem;
+    }
+    
+    .hero-logo {
+        max-width: 280px !important;
+    }
+    
+    .scroll-indicator {
+        margin-top: 2rem;
+    }
 }
 
 /* Animated background particles */
